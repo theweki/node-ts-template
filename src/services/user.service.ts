@@ -1,15 +1,13 @@
 import { userModel } from "../models/user.model.js";
 
-class UserService {
-  static async getUsers() {
-    const users = await userModel.find().lean();
-    return users;
-  }
+interface UserDTO {
+  name: string;
+  age: string;
+}
 
-  static async createUser(data: any) {
-    const user = await userModel.create(data);
-    return user.toObject();
-  }
+class UserService {
+  static getUsers = async () => userModel.find().lean();
+  static createUser = async (user: UserDTO) => userModel.create(user);
 }
 
 export { UserService };

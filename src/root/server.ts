@@ -1,4 +1,4 @@
-import express, { Request, Response, NextFunction } from "express";
+import express, { NextFunction, Request, Response } from "express";
 import { router } from "../routes/route.js";
 
 const app = express();
@@ -15,4 +15,3 @@ app.use((err: Error, _req: Request, res: Response, next: NextFunction) => {
 });
 
 export { app };
-router
